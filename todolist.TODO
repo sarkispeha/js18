@@ -1,0 +1,12 @@
+ ☐ form for quotes with quote and author
+     ☐ base class for authors
+     ☐ base class for quotes
+     ☐ numerical key for authors
+     ☐ on submit, method is called to authors and quotes objects to append to page
+ ☐ list of all quotes that updates when added, deleted, or rated
+ ☐ rate with 1-5 stars
+     ☐ method to append stars to quotes
+ ☐ sorted by ratings
+ ☐ random display popup quote
+     ☐ lightbox?
+ ☐ user can delete quote

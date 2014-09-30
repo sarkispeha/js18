@@ -1,0 +1,20 @@
+.main-block {
+	width: 90%;
+	margin: 5% 5%;
+
+}
+
+.title {
+	width: 90%;
+	height: 10%;
+	margin: 5%;
+}
+
+.title h1{
+	width: 100%;
+	text-align: center;
+}
+
+.main-input-form {
+	text-align: center;
+}
