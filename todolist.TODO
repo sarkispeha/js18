@@ -1,12 +1,13 @@
- ☐ form for quotes with quote and author
-     ☐ base class for authors
-     ☐ base class for quotes
-     ☐ numerical key for authors
-     ☐ on submit, method is called to authors and quotes objects to append to page
- ☐ list of all quotes that updates when added, deleted, or rated
+ ☐ list of all quotes that updates when 
+   ☐ added
+   ☐ deleted
  ☐ rate with 1-5 stars
      ☐ method to append stars to quotes
  ☐ sorted by ratings
- ☐ random display popup quote
+ ☐ random display popup quote 
      ☐ lightbox?
- ☐ user can delete quote
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✔ form for quotes with quote and author @done (14-10-01 09:04)
+ ✔ on submit, method is called to authors and quotes objects to append to page @done (14-10-01 09:03)
