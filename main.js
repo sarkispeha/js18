@@ -33,7 +33,7 @@ $(document).on('click', '.user-submit', function(e) {
 	$('input[name="quote"').val('');
 	make a method that does all this*/
 	quoteLibrary.push(newQuote);
-	console.log(quoteLibrary);
+	// console.log(quoteLibrary);
 });
 
 $(document).on('click', '.delete-btn', function(){
@@ -48,18 +48,28 @@ $(document).on('click', '.delete-btn', function(){
 			break;
 		}
 	}
-} );
+});
+
+$(document).on('click', '.authorDOM', function() {
+	var authorName = $(this).attr('data-author');
+	console.log(authorName);
+	var currentAuthorQuotes = [];
+	for(var i = 0; i < quoteLibrary.length; i++) {
+		// console.log(quoteLibrary[i]);
+		if(quoteLibrary[i].author === authorName) {
+			// console.log(authorName);
+			currentAuthorQuotes.push(quoteLibrary[i].quotation);
+			console.log(currentAuthorQuotes);
+		}
+	}
+})
 
 /////////////////////////////////////////////methods
 
 Quote.prototype.render = function() {
-	$('.quotation-area').append('<div class = "quoteBody" id="'+this.id+'"><p>Autor: ' + this.author + '</p><p>Quotation: "' + this.quotation + '"</p><button class="delete-btn">delete</button></div>');
-	
+	$('.quotation-area').append('<div class = "quoteBody" id="'+this.id+'"><p class="authorDOM" data-author="'+this.author+'">Autor: ' + this.author + '</p><p>Quotation: "' + this.quotation + '"</p><button class="delete-btn">delete</button></div>');	
 };
 
-// QuoteLibrary.prototype.pusher = function() {
-// 	this.quotes.push(currentQuote);
-// }
 
 
 
