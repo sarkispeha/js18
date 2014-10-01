@@ -1,4 +1,4 @@
-$(document).on('ready', function() {
+// $(document).on('ready', function() {
   
 /////////////////////////////////////////object classes and variables
 // var QuoteLibrary = function(quote) {
@@ -10,6 +10,7 @@ var quoteLibrary = [];
 var Quote = function(author, quotation) {
 	this.author = author;
 	this.quotation = quotation;
+	this.id = _.uniqueId();
 }
 
 var currentAuthor = '';
@@ -22,6 +23,8 @@ $(document).on('click', '.user-submit', function(e) {
 	e.preventDefault();
 	currentAuthor = $('input[name="author"').val();
 	currentQuote = $('input[name="quote"').val();
+	$('input[name="author"').val('');
+	$('input[name="quote"').val('');
 	var newQuote = new Quote(currentAuthor, currentQuote);
 	// console.log(newQuote);
 	newQuote.render();
@@ -29,21 +32,29 @@ $(document).on('click', '.user-submit', function(e) {
 	$('input[name="author"').val('');
 	$('input[name="quote"').val('');
 	make a method that does all this*/
-	quoteLibrary.push(currentQuote);
+	quoteLibrary.push(newQuote);
 	console.log(quoteLibrary);
 });
 
 $(document).on('click', '.delete-btn', function(){
 	// console.log($(this));
 	$(this).closest('.quoteBody').remove();
+
+	var appendedQuote = $(this).closest('.quoteBody').attr('id');
+
+	for(var i = 0; i < quoteLibrary.length; i++){
+		if(quoteLibrary[i].id === appendedQuote) {
+			quoteLibrary.splice(i, 1);
+			break;
+		}
+	}
 } );
 
 /////////////////////////////////////////////methods
 
 Quote.prototype.render = function() {
-	$('.quotation-area').append('<div class = "quoteBody"><p>Autor: ' + currentAuthor + '</p><p>Quotation: "' + currentQuote + '"</p><button class="delete-btn">delete</button></div>');
-	$('input[name="author"').val('');
-	$('input[name="quote"').val('');
+	$('.quotation-area').append('<div class = "quoteBody" id="'+this.id+'"><p>Autor: ' + this.author + '</p><p>Quotation: "' + this.quotation + '"</p><button class="delete-btn">delete</button></div>');
+	
 };
 
 // QuoteLibrary.prototype.pusher = function() {
@@ -52,4 +63,4 @@ Quote.prototype.render = function() {
 
 
 
-});
+// });
