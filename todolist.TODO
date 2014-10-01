@@ -1,6 +1,3 @@
- ☐ list of all quotes that updates when 
-   ☐ added
-   ☐ deleted
  ☐ rate with 1-5 stars
      ☐ method to append stars to quotes
  ☐ sorted by ratings
@@ -9,5 +6,8 @@
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ list of all quotes that updates when  @done (14-10-01 14:51)
+ ✔ deleted @done (14-10-01 14:50)
+ ✔ added @done (14-10-01 14:50)
  ✔ form for quotes with quote and author @done (14-10-01 09:04)
  ✔ on submit, method is called to authors and quotes objects to append to page @done (14-10-01 09:03)
