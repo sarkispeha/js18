@@ -28,10 +28,6 @@ $(document).on('click', '.user-submit', function(e) {
 	var newQuote = new Quote(currentAuthor, currentQuote);
 	// console.log(newQuote);
 	newQuote.render();
-	/*$('.quotation-area').append('<div class = "quoteBody"><p>Autor: ' + author + '</p><p>Quotation: "' + quote + '"</p><button class="delete-btn">delete</button></div>');
-	$('input[name="author"').val('');
-	$('input[name="quote"').val('');
-	make a method that does all this*/
 	quoteLibrary.push(newQuote);
 	// console.log(quoteLibrary);
 });
@@ -50,9 +46,10 @@ $(document).on('click', '.delete-btn', function(){
 	}
 });
 
+//event handler that creates quotes and appends them to DOM
 $(document).on('click', '.authorDOM', function() {
 	var authorName = $(this).attr('data-author');
-	console.log(authorName);
+	// console.log(authorName);
 	var currentAuthorQuotes = [];
 	for(var i = 0; i < quoteLibrary.length; i++) {
 		// console.log(quoteLibrary[i]);
@@ -63,10 +60,9 @@ $(document).on('click', '.authorDOM', function() {
 		}
 	}
 	currentAuthorQuotes = currentAuthorQuotes.join('<br>');
-	console.log(currentAuthorQuotes);
 
-
-	$('.lightbox-area').html('<div class="lightbox">author:' + authorName + '<br>Quotes:<br>' + currentAuthorQuotes + '</div>' + '<div class="lightbox-close"><button type="button">close</button></div>');
+//Lighbox popup with all quotes from selected author
+	$('.lightbox-area').html('<div class="lightbox">author: ' + authorName + '<br>Quotes:<br>' + currentAuthorQuotes + '</div>' + '<div class="lightbox-close"><button type="button">close</button></div>');
 	$('.lightbox-area').show();
 
 	$('.lightbox-close').on('click', function() {
@@ -76,11 +72,36 @@ $(document).on('click', '.authorDOM', function() {
 	
 })
 
+// $('.fa').on('mouseover', function() {
+// 	console.log('works')
+// 	$(this).removeClass('fa-star-o').addClass('fa-star');
+// 	console.log('off')
+// 	// $(this).removeClass('fa fa-star-o').addClass('fa fa-star');
+// })
+
+
+
 
 /////////////////////////////////////////////methods
 
 Quote.prototype.render = function() {
-	$('.quotation-area').append('<div class = "quoteBody" id="'+this.id+'"><p class="authorDOM" data-author="'+this.author+'">Autor: ' + this.author + '</p><p>Quotation: "' + this.quotation + '"</p><button class="delete-btn">delete</button></div>');	
+	$('.quotation-area').append('<div class = "quoteBody" id="'+this.id+'"><p class="authorDOM" data-author="'+this.author+'">Autor: ' + this.author + '</p><p>Quotation: "' + this.quotation + '"</p><button class="delete-btn">delete</button></div><div class="rating-area">Rating<ul><li><i class="fa fa-star-o" id="star1"></i></li><li><i class="fa fa-star-o" id="star2"></i></li><li><i class="fa fa-star-o" id="star3"></i></li><li><i class="fa fa-star-o" id="star4"></i></li><li><i class="fa fa-star-o" id="star5"></i></li></ul></div>');
+	
+	//mouse hover
+	$('.fa').on('mouseover', function() {
+		$(this).removeClass('fa-star-o').addClass('fa-star');
+	})
+	$('.fa').on('mouseout', function() {
+		$(this).removeClass('fa-star').addClass('fa-star-o');
+	})
+
+	//keeping stars hilighted
+	$(document).on('click', 'i', function(){
+		console.log('works');
+		console.log(this);
+		
+})
+
 };
 
 
