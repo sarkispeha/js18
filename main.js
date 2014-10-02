@@ -59,10 +59,23 @@ $(document).on('click', '.authorDOM', function() {
 		if(quoteLibrary[i].author === authorName) {
 			// console.log(authorName);
 			currentAuthorQuotes.push(quoteLibrary[i].quotation);
-			console.log(currentAuthorQuotes);
+			// console.log(currentAuthorQuotes);
 		}
 	}
+	currentAuthorQuotes = currentAuthorQuotes.join('<br>');
+	console.log(currentAuthorQuotes);
+
+
+	$('.lightbox-area').html('<div class="lightbox">author:' + authorName + '<br>Quotes:<br>' + currentAuthorQuotes + '</div>' + '<div class="lightbox-close"><button type="button">close</button></div>');
+	$('.lightbox-area').show();
+
+	$('.lightbox-close').on('click', function() {
+		console.log('works');
+		$('.lightbox-area').hide();
+	})
+	
 })
+
 
 /////////////////////////////////////////////methods
 
