@@ -12,6 +12,8 @@ var Quote = function(author, quotation) {
 
 var currentAuthor = '';
 var currentQuote = '';
+var currentStar = '';
+var indx = 0;
 
 
 //////////////////////////////////////////////events
@@ -63,12 +65,6 @@ $(document).on('click', '.authorDOM', function() {
 
 
 
-	//keeping stars hilighted
-// 	$(document).on('click', 'i', function(){
-// 		console.log('works');
-// 		console.log(this);
-		
- // })
 
 /////////////////////////////////////////////methods
 
@@ -76,22 +72,38 @@ Quote.prototype.render = function() {
 	$('.quotation-area').append('<div class = "quoteBody" id="'+this.id+'"><p class="authorDOM" data-author="'+this.author+'">Autor: ' + this.author + '</p><p>Quotation: "' + this.quotation + '"</p><button class="delete-btn">delete</button></div><div class="rating-area">Rating<ul><li><i class="fa fa-star-o" id="1"></i></li><li><i class="fa fa-star-o" id="2"></i></li><li><i class="fa fa-star-o" id="3"></i></li><li><i class="fa fa-star-o" id="4"></i></li><li><i class="fa fa-star-o" id="5"></i></li></ul></div>');
 	
 	//mouse hover
+	// currentStar and indx defined these variables at the top
+
+	//keeping stars hilighted
+	
 	$('.fa').on('mouseover', function() {
 		$(this).removeClass('fa-star-o').addClass('fa-star');
 		
-		// var currentStar = $(this);
-		// console.log(currentStar);
-		// for(var i = 1; i <= 5; i++) {
-
-		// }
-
+		currentStar = $(this);
+		indx = currentStar.closest('li').index()
+		var evryindx = currentStar.closest('ul').find("li:lt("+indx+") .fa");
+		$(evryindx).removeClass('fa-star-o').addClass('fa-star');
 		})
+
 	$('.fa').on('mouseout', function() {
 		$(this).removeClass('fa-star').addClass('fa-star-o');
+
+		currentStar = $(this);
+		indx = currentStar.closest('li').index()
+		var evryindx = currentStar.closest('ul').find("li:lt("+indx+") .fa");
+		$(evryindx).removeClass('fa-star').addClass('fa-star-o');
 		})
-};
 
+	$('.fa').on('click', function(){
+		$('.fa').off('mouseout');
+		$('.fa').off('mouseover');
+		currentStar = $(this);
+		indx = currentStar.closest('li').index()
+		var evryindx = currentStar.closest('ul').find("li:lt("+indx+") .fa");
+		$(evryindx).removeClass('fa-star').addClass('fa-star-o');
+		$(evryindx).removeClass('fa-star-o').addClass('fa-star');
+	 })
 
-
+	};
 
 // });
