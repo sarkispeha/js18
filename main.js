@@ -57,14 +57,30 @@ $(document).on('click', '.authorDOM', function() {
 		console.log('works');
 		$('.lightbox-area').hide();
 	})
-	
 })
+	
 
+
+
+
+	//keeping stars hilighted
+// 	$(document).on('click', 'i', function(){
+// 		console.log('works');
+// 		console.log(this);
+		
+ // })
+
+/////////////////////////////////////////////methods
+
+Quote.prototype.render = function() {
+	$('.quotation-area').append('<div class = "quoteBody" id="'+this.id+'"><p class="authorDOM" data-author="'+this.author+'">Autor: ' + this.author + '</p><p>Quotation: "' + this.quotation + '"</p><button class="delete-btn">delete</button></div><div class="rating-area">Rating<ul><li><i class="fa fa-star-o" id="1"></i></li><li><i class="fa fa-star-o" id="2"></i></li><li><i class="fa fa-star-o" id="3"></i></li><li><i class="fa fa-star-o" id="4"></i></li><li><i class="fa fa-star-o" id="5"></i></li></ul></div>');
+	
 	//mouse hover
 	$('.fa').on('mouseover', function() {
 		$(this).removeClass('fa-star-o').addClass('fa-star');
 		
-		console.log($(this).attr(id));
+		// var currentStar = $(this);
+		// console.log(currentStar);
 		// for(var i = 1; i <= 5; i++) {
 
 		// }
@@ -73,20 +89,6 @@ $(document).on('click', '.authorDOM', function() {
 	$('.fa').on('mouseout', function() {
 		$(this).removeClass('fa-star').addClass('fa-star-o');
 		})
-
-
-
-	//keeping stars hilighted
-	$(document).on('click', 'i', function(){
-		console.log('works');
-		console.log(this);
-		
-})
-
-/////////////////////////////////////////////methods
-
-Quote.prototype.render = function() {
-	$('.quotation-area').append('<div class = "quoteBody" id="'+this.id+'"><p class="authorDOM" data-author="'+this.author+'">Autor: ' + this.author + '</p><p>Quotation: "' + this.quotation + '"</p><button class="delete-btn">delete</button></div><div class="rating-area">Rating<ul><li><i class="fa fa-star-o" id="1"></i></li><li><i class="fa fa-star-o" id="2"></i></li><li><i class="fa fa-star-o" id="3"></i></li><li><i class="fa fa-star-o" id="4"></i></li><li><i class="fa fa-star-o" id="5"></i></li></ul></div>');
 };
 
 
